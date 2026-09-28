@@ -1,0 +1,16 @@
+TECH STACK (implementation)
+
+Frontend: React + Vite, Tailwind CSS
+
+Backend: FastAPI (Python), PostgreSQL
+
+Knowledge Base / RAG:
+- Hugging Face datasets (TruthfulQA, SQuAD)
+- LangChain text splitter (chunking)
+- sentence-transformers (embeddings)
+- ChromaDB / Qdrant (vector store)
+
+AI Agent layer:
+- Claude / GPT-4o-mini (judge agent LLM)
+- LangGraph or custom orchestrator
+- RAGAS (benchmark reference)
