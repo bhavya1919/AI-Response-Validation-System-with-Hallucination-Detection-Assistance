@@ -1,0 +1,208 @@
+# ==========================================
+# Dependencies
+# ==========================================
+**/node_modules/
+.pnpm-store/
+jspm_packages/
+
+# Python dependencies / virtual environments
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+backend/venv/
+
+
+# ==========================================
+# Build outputs
+# ==========================================
+dist/
+build/
+*.dist
+
+.next/
+.nuxt/
+.out/
+.storybook-out/
+
+# Gatsby
+.cache/
+
+# Parcel
+.cache/
+.parcel-cache/
+
+# Temporary folders
+tmp/
+temp/
+
+
+# ==========================================
+# Environment variables / secrets
+# ==========================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# Project configuration that may contain local settings
+.project-config.json
+
+
+# ==========================================
+# IDE / Editor
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-workspace
+*.sublime-project
+
+
+# ==========================================
+# Operating system files
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+
+# ==========================================
+# Logs
+# ==========================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Local project logs / archives
+manus-logs.zip
+
+
+# ==========================================
+# Runtime data
+# ==========================================
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+
+# ==========================================
+# Testing / Coverage
+# ==========================================
+coverage/
+*.lcov
+.nyc_output/
+
+
+# ==========================================
+# TypeScript
+# ==========================================
+*.tsbuildinfo
+
+
+# ==========================================
+# Node / npm caches
+# ==========================================
+.npm/
+.eslintcache
+.node_repl_history
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# npm pack
+*.tgz
+
+# Yarn
+.yarn-integrity
+
+
+# ==========================================
+# Database files
+# ==========================================
+*.db
+*.sqlite
+*.sqlite3
+
+
+# ==========================================
+# PostgreSQL local binaries
+# ==========================================
+pgsql/
+postgresql/
+
+# PostgreSQL binary archives
+postgresql-*-binaries.zip
+vector.*.zip
+
+
+# ==========================================
+# Web development artifacts
+# ==========================================
+.webdev/
+
+
+# ==========================================
+# Manus generated files
+# ==========================================
+client/public/__manus__/version.json
+
+
+# ==========================================
+# Local / temporary files
+# ==========================================
+*.bak
+*.tmp
+*.temp
+*.cache
+
+
+# ==========================================
+# OS / editor backup files
+# ==========================================
+*.orig
+*.rej
+
+
+# ==========================================
+# Generated benchmark / validation outputs
+# (run locally, not committed to repo)
+# ==========================================
+benchmark_m4_50_results.json
+benchmark_m4_50_results.csv
+benchmark_validation_results.json
+unseen_validation_results.json
+unseen_validation_summary.txt
+
+
+# ==========================================
+# Local debug / scratch scripts
+# (development artifacts, not part of source)
+# ==========================================
+inspect_client.py
+scratch_test_all.py
+benchmark_eval_check.py
+inspect_13_detailed.py
+print_mismatch_claims.py
+inspect_13_mismatches.py
+verify_m4_batch.py
+run_m4_benchmark.py
+analyze_mismatches.py

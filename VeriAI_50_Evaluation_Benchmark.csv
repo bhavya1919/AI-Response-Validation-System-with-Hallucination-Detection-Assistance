@@ -1,0 +1,51 @@
+id,category,question,reference_answer
+1,Geography,Where is the Taj Mahal located?,"The Taj Mahal is located in Agra, Uttar Pradesh, India."
+2,Geography,What is the capital of France?,The capital of France is Paris.
+3,Geography,What is the capital of India?,The capital of India is New Delhi.
+4,Geography,Which country is home to the Great Pyramid of Giza?,The Great Pyramid of Giza is in Egypt.
+5,Geography,What is the largest ocean on Earth?,The Pacific Ocean is the largest ocean on Earth.
+6,Geography,Which continent is the Sahara Desert primarily located in?,The Sahara Desert is primarily located in Africa.
+7,Geography,What is the capital of Japan?,The capital of Japan is Tokyo.
+8,Geography,Which country has the city of Sydney?,Sydney is a city in Australia.
+9,Geography,What is the longest river in India?,The Ganges is the longest river in India.
+10,Geography,Which mountain is the highest above sea level?,Mount Everest is the highest mountain above sea level.
+11,Science,What planet is known as the Red Planet?,Mars is known as the Red Planet.
+12,Science,What gas do humans primarily breathe in for respiration?,Humans primarily take in oxygen for respiration.
+13,Science,What is H2O commonly called?,H2O is commonly called water.
+14,Science,What is the center of an atom called?,The center of an atom is called the nucleus.
+15,Science,What force pulls objects toward Earth?,Gravity pulls objects toward Earth.
+16,Science,What is the boiling point of water at standard atmospheric pressure?,Water boils at 100 degrees Celsius at standard atmospheric pressure.
+17,Science,Which organ pumps blood through the human body?,The heart pumps blood through the human body.
+18,Science,What is the process by which plants make food using light?,Plants make food using photosynthesis.
+19,Science,Which vitamin is mainly produced in the skin in response to sunlight?,Vitamin D is produced in the skin in response to sunlight.
+20,Science,What is the chemical symbol for gold?,The chemical symbol for gold is Au.
+21,Computer Science,What does CPU stand for?,CPU stands for Central Processing Unit.
+22,Computer Science,What does RAM stand for?,RAM stands for Random Access Memory.
+23,Computer Science,What does SQL stand for?,SQL stands for Structured Query Language.
+24,Computer Science,"What data structure follows the Last-In, First-Out principle?","A stack follows the Last-In, First-Out principle."
+25,Computer Science,"What data structure follows the First-In, First-Out principle?","A queue follows the First-In, First-Out principle."
+26,Computer Science,What is the binary representation of decimal 5?,The binary representation of decimal 5 is 101.
+27,Computer Science,What does HTTP stand for?,HTTP stands for Hypertext Transfer Protocol.
+28,Computer Science,What is an algorithm?,"An algorithm is a finite, well-defined sequence of steps used to solve a problem or perform a computation."
+29,Computer Science,What does HTML stand for?,HTML stands for HyperText Markup Language.
+30,Computer Science,What is a primary key in a relational database?,A primary key is a column or set of columns that uniquely identifies each row in a relational table.
+31,Mathematics,What is 12 multiplied by 8?,12 multiplied by 8 is 96.
+32,Mathematics,What is the square root of 144?,The square root of 144 is 12.
+33,Mathematics,What is 15% of 200?,15% of 200 is 30.
+34,Mathematics,What is the area of a rectangle with length 10 cm and width 5 cm?,The area is 50 square centimeters.
+35,Mathematics,What is the perimeter of a square with side length 7 cm?,The perimeter is 28 centimeters.
+36,Mathematics,What is the value of 2^5?,2 raised to the fifth power is 32.
+37,Mathematics,"What is the average of 10, 20, and 30?",The average is 20.
+38,Mathematics,What is 3/4 expressed as a decimal?,3/4 expressed as a decimal is 0.75.
+39,Mathematics,What is the sum of the angles in a triangle?,The sum of the interior angles of a triangle is 180 degrees.
+40,Mathematics,"If x + 7 = 12, what is x?",x equals 5.
+41,General Knowledge,How many days are in a leap year?,A leap year has 366 days.
+42,General Knowledge,How many continents are commonly recognized on Earth?,Seven continents are commonly recognized.
+43,General Knowledge,What is the currency of Japan?,The currency of Japan is the Japanese yen.
+44,General Knowledge,What is the national capital of the United States?,"The national capital of the United States is Washington, D.C."
+45,General Knowledge,Which language is primarily spoken in Brazil?,Portuguese is the primary language spoken in Brazil.
+46,General Knowledge,Who wrote the play Romeo and Juliet?,William Shakespeare wrote Romeo and Juliet.
+47,General Knowledge,How many sides does a hexagon have?,A hexagon has six sides.
+48,General Knowledge,What is the largest mammal?,The blue whale is the largest mammal.
+49,General Knowledge,Which instrument is used to measure temperature?,A thermometer is used to measure temperature.
+50,General Knowledge,What is the freezing point of water at standard atmospheric pressure?,Water freezes at 0 degrees Celsius at standard atmospheric pressure.
