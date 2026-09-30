@@ -427,7 +427,14 @@ export async function getEvaluationHistory(params?: {
   if (params?.offset) searchParams.set("offset", String(params.offset));
 
   const queryStr = searchParams.toString() ? `?${searchParams.toString()}` : "";
-  return await request<HistoryResponse>(`/api/evaluate/history${queryStr}`);
+  const raw = await request<any>(`/api/evaluate/history${queryStr}`);
+  return {
+    total: raw.total ?? (raw.items?.length || 0),
+    pass_count: raw.pass_count ?? raw.summary?.pass ?? 0,
+    review_count: raw.review_count ?? raw.summary?.review ?? 0,
+    fail_count: raw.fail_count ?? raw.summary?.fail ?? 0,
+    items: raw.items || [],
+  };
 }
 
 /**
