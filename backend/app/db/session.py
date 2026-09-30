@@ -15,7 +15,13 @@ try:
 except Exception as e:
     # Fallback to local SQLite database for standalone offline execution
     import os
-    db_path = os.path.join(os.path.dirname(__file__), "veriai_fallback.db")
+    import sys
+    # On serverless (like Vercel/AWS Lambda), the code directory is read-only; /tmp is writable
+    if os.environ.get("VERCEL") or os.environ.get("AWS_LAMBDA_FUNCTION_NAME"):
+        db_path = "/tmp/veriai_fallback.db"
+    else:
+        db_path = os.path.join(os.path.dirname(__file__), "veriai_fallback.db")
+    print(f"[VeriAI DB] Warning: PostgreSQL connection failed ({e}). Falling back to SQLite at {db_path}", file=sys.stderr)
     engine = create_engine(f"sqlite:///{db_path}", connect_args={"check_same_thread": False})
     Base.metadata.create_all(bind=engine)
 
