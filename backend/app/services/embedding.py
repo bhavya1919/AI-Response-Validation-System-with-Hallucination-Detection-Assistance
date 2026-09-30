@@ -10,6 +10,13 @@ class EmbeddingService:
     def _get_model(self):
         if self._model is None:
             try:
+                import os
+                # Vercel serverless has a read-only home directory; /tmp is always writable.
+                # Redirect cache directories so the model can be downloaded on first cold start.
+                if not os.environ.get("HF_HOME"):
+                    os.environ["HF_HOME"] = "/tmp/hf_home"
+                if not os.environ.get("FASTEMBED_CACHE_PATH"):
+                    os.environ["FASTEMBED_CACHE_PATH"] = "/tmp/fastembed_cache"
                 from fastembed import TextEmbedding
                 # FastEmbed runs via ONNX Runtime on CPU locally, no heavy PyTorch required
                 self._model = TextEmbedding(model_name=self.model_name)

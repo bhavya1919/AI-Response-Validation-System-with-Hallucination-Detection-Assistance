@@ -5,6 +5,29 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 
+import sys
+import types
+from pathlib import Path
+
+# Ensure repo root and backend service root are on sys.path
+_current_dir = Path(__file__).resolve().parent          # .../app
+_service_root = _current_dir.parent                     # .../backend (or /var/task in Vercel)
+_repo_root = _service_root.parent                       # .../repo_root
+
+for _p in (_repo_root, _service_root):
+    if str(_p) not in sys.path:
+        sys.path.insert(0, str(_p))
+
+# When deployed inside a service root in Vercel, /var/task is the backend directory itself,
+# so `backend` package does not exist on disk as a parent folder. Alias it to _service_root.
+if "backend" not in sys.modules:
+    try:
+        import backend  # noqa: F401
+    except ImportError:
+        _backend_pkg = types.ModuleType("backend")
+        _backend_pkg.__path__ = [str(_service_root)]
+        sys.modules["backend"] = _backend_pkg
+
 from backend.app.config import settings
 from backend.app.db.session import engine, Base
 from backend.app.api import sources, documents, chunks, search, ingest, evaluate

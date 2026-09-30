@@ -206,3 +206,4 @@ inspect_13_mismatches.py
 verify_m4_batch.py
 run_m4_benchmark.py
 analyze_mismatches.py
+.env*
