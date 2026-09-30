@@ -14,3 +14,37 @@ AI Agent layer:
 - Claude / GPT-4o-mini (judge agent LLM)
 - LangGraph or custom orchestrator
 - RAGAS (benchmark reference)
+
+
+-----Detailed------
+TECH STACK: AI RESPONSE EVALUATION PLATFORM
+
+FRONTEND
+- React: user interface
+- Vite: build and production bundling
+- TypeScript: type-safe frontend development
+- Existing React design system: dashboard, evaluation forms, history, reports
+
+BACKEND
+- FastAPI: REST API and evaluation orchestration
+- Python: AI and evaluation logic
+- Multi-agent engine: Relevance, Accuracy, Hallucination, Completeness and Verdict agents
+- ReportLab: PDF report generation
+- Python CSV: batch evaluation input
+
+DATA AND AI
+- PostgreSQL: persistent application and evaluation data
+- PostgreSQL + pgvector: vector database for semantic knowledge-base retrieval
+- BAAI/bge-small-en-v1.5: 384-dimensional embeddings
+- pgvector / HNSW: vector search to retrieve relevant knowledge
+- Retrieval-augmented generation (RAG): grounds evaluations with evidence
+
+TESTING
+- Pytest: backend unit and integration testing
+- TypeScript checks + E2E testing: UI and build verification
+
+HOSTING AND DEVOPS
+- Git + GitHub: source control
+- Vercel: frontend hosting and production deployment
+- Vercel Python Serverless: production FastAPI backend
+- Neon PostgreSQL: production database
