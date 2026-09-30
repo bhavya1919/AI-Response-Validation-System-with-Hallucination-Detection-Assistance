@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import AppLayout from "@/components/AppLayout";
 import { toast } from "sonner";
+import { API_BASE_URL } from "@/services/api";
 
 interface DocSection {
   id: string;
@@ -105,7 +106,7 @@ export default function Documentation() {
               <button
                 onClick={() =>
                   handleCopyCode(
-                    `curl -X POST "http://localhost:8000/api/evaluate" \\\n  -H "Content-Type: application/json" \\\n  -d '{\n    "question": "What is photosynthesis?",\n    "ai_response": "Photosynthesis converts light into glucose, releasing oxygen.",\n    "top_k": 5\n  }'`
+                    `curl -X POST "${API_BASE_URL}/api/evaluate" \\\n  -H "Content-Type: application/json" \\\n  -d '{\n    "question": "What is photosynthesis?",\n    "ai_response": "Photosynthesis converts light into glucose, releasing oxygen.",\n    "top_k": 5\n  }'`
                   )
                 }
                 className="inline-flex items-center gap-1 text-[11px] font-bold text-[#6d28d9] hover:underline"
@@ -115,7 +116,7 @@ export default function Documentation() {
             </div>
             <p className="mt-1">Execute multi-agent evaluation pipeline and persist results to PostgreSQL.</p>
             <div className="mt-2 rounded-xl bg-[#1e1b29] p-3 text-[#e2dcf2] font-mono text-[11px] overflow-x-auto">
-              {`curl -X POST "http://localhost:8000/api/evaluate" \\
+              {`curl -X POST "${API_BASE_URL}/api/evaluate" \\
   -H "Content-Type: application/json" \\
   -d '{
     "question": "What is photosynthesis?",
@@ -133,7 +134,7 @@ export default function Documentation() {
               <button
                 onClick={() =>
                   handleCopyCode(
-                    `curl -X POST "http://localhost:8000/api/knowledge/search" \\\n  -H "Content-Type: application/json" \\\n  -d '{\n    "query": "Apollo 11 moon landing quote",\n    "top_k": 5\n  }'`
+                    `curl -X POST "${API_BASE_URL}/api/knowledge/search" \\\n  -H "Content-Type: application/json" \\\n  -d '{\n    "query": "Apollo 11 moon landing quote",\n    "top_k": 5\n  }'`
                   )
                 }
                 className="inline-flex items-center gap-1 text-[11px] font-bold text-[#6d28d9] hover:underline"
@@ -143,7 +144,7 @@ export default function Documentation() {
             </div>
             <p className="mt-1">Perform direct semantic vector search against pgvector index.</p>
             <div className="mt-2 rounded-xl bg-[#1e1b29] p-3 text-[#e2dcf2] font-mono text-[11px] overflow-x-auto">
-              {`curl -X POST "http://localhost:8000/api/knowledge/search" \\
+              {`curl -X POST "${API_BASE_URL}/api/knowledge/search" \\
   -H "Content-Type: application/json" \\
   -d '{
     "query": "Apollo 11 moon landing quote",
@@ -159,7 +160,7 @@ export default function Documentation() {
               </h4>
               <button
                 onClick={() =>
-                  handleCopyCode(`curl "http://localhost:8000/api/evaluate/stats/dashboard"`)
+                  handleCopyCode(`curl "${API_BASE_URL}/api/evaluate/stats/dashboard"`)
                 }
                 className="inline-flex items-center gap-1 text-[11px] font-bold text-[#6d28d9] hover:underline"
               >
@@ -168,7 +169,7 @@ export default function Documentation() {
             </div>
             <p className="mt-1">Retrieve aggregated dashboard metrics, hallucination frequency, completeness distribution, and top evaluation issues.</p>
             <div className="mt-2 rounded-xl bg-[#1e1b29] p-3 text-[#e2dcf2] font-mono text-[11px] overflow-x-auto">
-              {`curl "http://localhost:8000/api/evaluate/stats/dashboard"`}
+              {`curl "${API_BASE_URL}/api/evaluate/stats/dashboard"`}
             </div>
           </div>
 

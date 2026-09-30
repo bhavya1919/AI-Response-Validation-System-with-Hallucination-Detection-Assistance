@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense, lazy } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Route, Switch, useLocation } from "wouter";
@@ -6,19 +6,20 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { EvaluationProvider } from "./contexts/EvaluationContext";
 import { useEvaluation } from "./contexts/EvaluationContext";
-import Home from "./pages/Home";
-import LoginPage from "./pages/LoginPage";
-import Dashboard from "./pages/Dashboard";
-import Evaluate from "./pages/Evaluate";
-import BatchEvaluate from "./pages/BatchEvaluate";
-import History from "./pages/History";
-import KnowledgeBase from "./pages/KnowledgeBase";
-import Analytics from "./pages/Analytics";
-import Reports from "./pages/Reports";
-import Architecture from "./pages/Architecture";
-import Documentation from "./pages/Documentation";
-import Settings from "./pages/Settings";
-import NotFound from "./pages/NotFound";
+
+const Home = lazy(() => import("./pages/Home"));
+const LoginPage = lazy(() => import("./pages/LoginPage"));
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const Evaluate = lazy(() => import("./pages/Evaluate"));
+const BatchEvaluate = lazy(() => import("./pages/BatchEvaluate"));
+const History = lazy(() => import("./pages/History"));
+const KnowledgeBase = lazy(() => import("./pages/KnowledgeBase"));
+const Analytics = lazy(() => import("./pages/Analytics"));
+const Reports = lazy(() => import("./pages/Reports"));
+const Architecture = lazy(() => import("./pages/Architecture"));
+const Documentation = lazy(() => import("./pages/Documentation"));
+const Settings = lazy(() => import("./pages/Settings"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 /** Redirects unauthenticated users to /login */
 function ProtectedRoute({ component: Component }: { component: React.ComponentType }) {
@@ -71,10 +72,17 @@ export default function App() {
         <EvaluationProvider>
           <TooltipProvider>
             <Toaster />
-            <Router />
+            <Suspense fallback={
+              <div className="min-h-screen flex items-center justify-center bg-[#0d0b12] text-[#9e97b3] text-sm">
+                Loading VeriAI...
+              </div>
+            }>
+              <Router />
+            </Suspense>
           </TooltipProvider>
         </EvaluationProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );
 }
+

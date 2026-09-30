@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { API_BASE_URL } from "@/services/api";
 import {
   Dialog,
   DialogContent,
@@ -463,7 +464,7 @@ export function KnowledgeBaseModal({
 
   useEffect(() => {
     if (open) {
-      fetch("http://localhost:8000/api/knowledge/ingest/stats")
+      fetch(`${API_BASE_URL}/api/knowledge/ingest/stats`)
         .then((res) => res.json())
         .then((data) => {
           if (data && typeof data.sources === "number") {

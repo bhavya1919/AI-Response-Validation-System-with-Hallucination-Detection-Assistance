@@ -1,0 +1,47 @@
+# ==============================================================================
+# VeriAI Frontend - Production Multi-Stage Dockerfile
+# Stage 1: Build React/Vite SPA
+# Stage 2: Serve with Nginx Alpine + SPA routing
+# (Build context should be the repository root)
+# ==============================================================================
+
+FROM node:20-slim AS builder
+
+WORKDIR /app
+
+# Install pnpm matching packageManager version
+RUN npm install -g pnpm@10.4.1
+
+# Copy dependency manifests and local patches first for layer caching
+COPY package.json pnpm-lock.yaml ./
+COPY patches ./patches
+
+# Install dependencies
+RUN pnpm install --frozen-lockfile
+
+# Copy source code and config
+COPY . .
+
+# Build argument to configure API URL at build time (empty default uses relative /api proxy)
+ARG VITE_API_URL=""
+ENV VITE_API_URL=${VITE_API_URL}
+
+# Run production build (outputs to dist/public)
+RUN pnpm exec vite build
+
+# ── Stage 2: Production Nginx Runtime ──────────────────────────────────────────
+FROM nginx:alpine
+
+# Copy compiled static assets
+COPY --from=builder /app/dist/public /usr/share/nginx/html
+
+# Copy Nginx SPA configuration
+COPY docker/nginx/default.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+
+# Health check
+HEALTHCHECK --interval=15s --timeout=5s --start-period=10s --retries=3 \
+    CMD wget -q -O /dev/null http://localhost/healthz || exit 1
+
+CMD ["nginx", "-g", "daemon off;"]
