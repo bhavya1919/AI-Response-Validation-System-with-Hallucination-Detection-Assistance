@@ -3,8 +3,12 @@
  * Connects frontend to the FastAPI Multi-Agent RAG evaluation and knowledge services.
  */
 
+const rawBaseUrl = (import.meta.env.VITE_API_URL as string) || (import.meta.env.DEV ? "http://localhost:8000" : "");
+// If VITE_API_URL is configured as "/api" or has a trailing slash, normalize it so endpoints starting with "/api/..." don't duplicate to "/api/api/..."
 export const API_BASE_URL =
-  (import.meta.env.VITE_API_URL as string) || "http://localhost:8000";
+  rawBaseUrl === "/api" || rawBaseUrl === "/api/"
+    ? ""
+    : rawBaseUrl.replace(/\/+$/, "").replace(/\/api$/, "");
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
